@@ -1606,6 +1606,11 @@ std::size_t len (...)
 {   return 0;
 }
 
+/**
+ * @brief Función en la que se muestra como trabaja la función propia "len",
+ * la cual recibe como argumento un objeto que tiene la propiedad "size", y devuelve el valor de dicha
+ * propiedad. Si la variable no tiene dicha propiedad, devuelve el valor de "0".
+ */
 void DemoLen()
 {
     vector<int> v1{0, 8, 15, 42, 13, -1, 0};
@@ -1815,20 +1820,51 @@ void DemoBinaryTree(Container &container)
         container.insert(v);
     }    
     cout << endl;
-    cout << "BinaryTree : ";
-    container.inorden(cout);
+    cout << "Recorrido inorden: " << endl;
+    container.inorder(cout);
+    cout << "\nRecorrido postorden: " << endl;
+    container.postorder(cout);
+    cout << "\nRecorrido preorden: " << endl;
+    container.preorder(cout);
+    cout << "\nTREE: " << endl;
+    container.print(cout);
+
+    /*
+    // aplicando función
+    cout << "Recorrido aplicando funci'on duplicar (recorrido inorden) " << endl;               
+    //container.inorder(duplicate);
+    cout << "Aplicando funci'on imprimir: " << endl;               
+    //container.inorder(printTree);
+    */
 }
 
 #include "binarytree.h"
 void DemoBinaryTree()
-{   cout << "Ascending Binarytree ..." << endl;
+{   
+    cout << "Ascending Binarytree ..." << endl;
     BinaryTree< BinaryTreeAscTraits<TX> > myAscBinaryTree;
     DemoBinaryTree(myAscBinaryTree);
-
+    
     cout << "Descending Binarytree ..." << endl;
     BinaryTree< BinaryTreeDescTraits<TX> > myDescBinaryTree;
     DemoBinaryTree(myDescBinaryTree);
-    exit(0);
+}
+
+#include "btree.h"
+void DemoTree()
+{
+    BTree <char> bt;
+    const char * keys = "DYZakHIUwxVJ203ejOP9Qc8AdtuEop1XvTRghSNbW567BfiCqrs4FGMyzKLlmn";
+    for(size_t i = 0; keys[i]; i++)
+        {
+                //cout<<"Inserting "<<keys1[i]<<endl;
+                //result = bt.Insert(keys4[i], i*i);
+                bt.Insert(keys[i], i*i);
+                //bt.Print(cout);
+        }
+        bt.Print(cout);
+        exit(0);
+
 }
 
 /**
@@ -1961,6 +1997,11 @@ class myclass
   bool operator() (int i,int j) { return (i<j);}
 };
 
+/**
+ * @brief Función que muestra las distintas formas de ordena un vector
+ * haciendo uso de la función "sort".
+ * 
+ **/
 void DemoSort1()
 {
     vector<int> v1 {70, 50,    80, 90, 60, 30, 10,    40, 50, 40, 60, 70, 20, 50};
@@ -1992,6 +2033,12 @@ bool compare(pair<int, int> a, pair<int, int> b)
     return a.first  > b.first;    // luego de > a < por el 1ro
 }
 
+/**
+ * @brief Función en la que se muestra la forma en que "sort" puede ordenar el tipo "pair" con la función definida
+ * propia "compare", la cual compara dos variables de tipo "pair", retornando la variable que tenga la menor segunda componente
+ * o, si tiene la segunda compontente igual, retorna la variable que tiene la mayor primera componente.
+ * 
+ */
 void DemoSort2()
 {
     pair<int, int> pairs[] = {{1, 2}, {2, 1}, {7, 1}, {5, 3}, {4,1}, {3, 1}};
@@ -2001,6 +2048,11 @@ void DemoSort2()
     // print(pair)
 }
 
+/**
+ * @brief Funcion en la que dado un vector cualquiera, muestra todas las permutaciones previas
+ * siguiendo el orden lexicográfico del vector ordenado.
+ * 
+ */
 void DemoPermutation()
 {
     vector<int> v1 {70, 50, 80, 90, 60};
@@ -2789,6 +2841,10 @@ void DemoVectorSTL()
 }
 
 #include "matrix.h"
+/**
+ * @brief Función en la que se define una clase para hacer operaciones con Matrices.
+ * 
+ */
 void DemoPointersL3Matrix()
 {
     CMatrix<float> mat1(3, 7, 2), mat2(7, 5, 1);
@@ -3004,6 +3060,44 @@ int val1 = 100;
 void DemoScope()
 {
 
+}
+
+
+#include "btree.h"
+const char * keys1 = "D1XJ2xTg8zKL9AhijOPQcEowRSp0NbW567BUfCqrs4FdtYZakHIuvGV3eMylmn";
+const char * keys2 = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+const char * keys3 = "DYZakHIUwxVJ203ejOP9Qc8AdtuEop1XvTRghSNbW567BfiCqrs4FGMyzKLlmn";
+const char * keys4 = "ABC";
+string keys = "";
+const size_t BTreeSize = 3;
+
+void Demobtree()
+{
+    size_t result, i=2, aux=1;
+    //BTree <char> bt (BTreeSize);
+    //BTree <char> bt;
+    BTree <BtreeTrait<char, size_t>> bt;
+    system("cls");
+    while (i > 1 && aux < 2)
+    { 
+        for( i = 0; keys4[i]; i++)
+        {
+            //cout<<"Inserting "<<keys1[i]<<endl;
+            //result = bt.Insert(keys4[i], i*i);
+            bt.Insert(keys4[i], i*i);
+            //bt.Print(cout);
+        }
+        i++;
+        bt.Print(cout);
+        for( i = 0; keys4[i]; i++)
+        {
+                bt.Remove(keys4[i], i*i);
+        }
+        i++;
+        //cout << i << endl;
+        aux++;
+    
+    }
 }
 
 

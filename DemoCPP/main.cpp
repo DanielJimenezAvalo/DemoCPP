@@ -1,15 +1,18 @@
 #include <iostream>
 #include <tuple>
 #include "demo.h"
+
 using namespace std;
 
 // Test desde Mac
-// g++ -pthread -std=c++17 -o main main.cpp demo.cpp
+// g++ -pthread -std=c++17 -o main main.cpp demo.cpp util.cpp
+// g++ -pthread -std=c++17 -o btree BTree-main.cpp
 // Comentario extra de Mac
 // Texto sugerido
 
 int main()
 {
+/*
   Exe("DemoBasics",  DemoBasics); 
   Exe("CounterTest", CounterTest);
   Exe("DemoInitializer1", DemoInitializer1);
@@ -79,6 +82,7 @@ int main()
   Exe("demoLinkedListSorted", demoLinkedListSorted);
   Exe("demoDoubleLinkedListSorted", demoDoubleLinkedListSorted);
   Exe("DemoBinaryTree", DemoBinaryTree);
+  Exe("DemoTree", DemoTree);
   Exe("DemoDSMap", DemoDSMap);
   Exe("DemoStack", DemoStack);
   Exe("DemoMultiset", DemoMultiset);
@@ -107,6 +111,8 @@ int main()
   Exe("DemoPointersToStruct", DemoPointersToStruct);
   Exe("DemoPointersToMembers1", DemoPointersToMembers1);
   Exe("DemoPointersToMembers2", DemoPointersToMembers2);
+  */
+  Exe("Demobtree", Demobtree);
   return 0;
 }
 
